@@ -1,0 +1,64 @@
+328 - Kansas
+352 - Lehigh
+465 - UNLV
+504 - Northern Iowa
+416 - Michigan St.
+472 - New Mexico St.
+392 - Maryland
+288 - Houston
+694 - Tennessee
+626 - San Diego St.
+251 - Georgetown
+519 - Ohio
+521 - Oklahoma St.
+255 - Georgia Tech
+518 - Ohio St.
+104 - UCSB
+688 - Syracuse
+738 - Vermont
+260 - Gonzaga
+234 - Florida St.
+87 - Butler
+704 - UTEP
+736 - Vanderbilt
+454 - Murray St.
+812 - Xavier
+428 - Minnesota
+545 - Pittsburgh
+514 - Oakland
+77 - BYU
+235 - Florida
+327 - Kansas St.
+497 - North Texas
+334 - Kentucky
+198 - E. Tennessee St.
+703 - Texas
+749 - Wake Forest
+690 - Temple
+167 - Cornell
+796 - Wisconsin
+2915 - Wofford
+387 - Marquette
+756 - Washington
+473 - New Mexico
+441 - Montana
+147 - Clemson
+434 - Missouri
+768 - West Virginia
+446 - Morgan St.
+193 - Duke
+2678 - AR Pine Bluff
+107 - California
+367 - Louisville
+697 - Texas A&M
+731 - Utah St.
+559 - Purdue
+639 - Siena
+513 - Notre Dame
+523 - Old Dominion
+51 - Baylor
+624 - Sam Houston St.
+575 - Richmond
+610 - St. Mary's
+739 - Villanova
+579 - Robert Morris
