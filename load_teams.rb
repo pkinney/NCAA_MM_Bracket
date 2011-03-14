@@ -1,10 +1,13 @@
-def load_teams
+require "team"
+
+def load_teams(file = "teams.txt")
   teams = {}
-  f = File.open("/Users/mpkinney/ncaa2010/teams.txt")
+  f = File.open(file)
   while line = f.gets
-    num, name = line.split '|'
-    teams[num] = name.strip
-    # puts "#{num} - #{name}"
+    team = Team.load(line)
+    teams[team.team_id] = team
+#    puts "#{num} - #{name}"
   end
+  puts "#{teams.size} teams loaded"
   teams
 end
