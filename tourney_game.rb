@@ -2,7 +2,7 @@ require "game"
 require "team"
 
 class TourneyGame
-  attr_accessor :team1, :team2, :game1, :game2, :child, :name, :round, :winner
+  attr_accessor :team1, :team2, :game1, :game2, :child, :name, :round, :winner, :spread
 
   def initialize()
     @parents = []
@@ -19,6 +19,11 @@ class TourneyGame
     @game2 = game2
     game1.child = self
     game2.child = self
+  end
+
+  def set_result(winning_team, score_spread)
+    @winner=winning_team
+    @spread=score_spread
   end
 
   def to_s
