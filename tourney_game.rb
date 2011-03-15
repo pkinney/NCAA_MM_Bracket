@@ -2,7 +2,7 @@ require "game"
 require "team"
 
 class TourneyGame
-  attr_accessor :team1, :team2, :parents, :child
+  attr_accessor :team1, :team2, :game1, :game2, :child, :name, :round, :winner
 
   def initialize()
     @parents = []
@@ -15,14 +15,17 @@ class TourneyGame
   end
 
   def set_parents(game1, game2)
-    @parents = [game1, game2]
+    @game1 = game1
+    @game2 = game2
+    game1.child = self
+    game2.child = self
   end
 
   def to_s
     if @team1 && @team2
-      "#{@team1.name} vs. #{@team2.name}"
+      "#{@name} - #{@team1.name} vs. #{@team2.name}"
     else
-      "game"
+      "#{@name}"
     end
   end
 end
