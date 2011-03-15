@@ -5,6 +5,7 @@ class Team
     @team_id = team_id
     @name = name
     @games = []
+    @stats = {}
   end
 
   def Team.load(line)
@@ -20,6 +21,14 @@ class Team
     unless @games.any? {|g| g==game}
       @games << game
     end
+  end
+
+  def set_stat(stat_name, value)
+    @stats[stat_name] = value
+  end
+
+  def get_stat(stat_name)
+    @stats[stat_name]
   end
 
   def to_s

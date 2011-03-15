@@ -59,6 +59,10 @@ class Game
     get_loser == team
   end
 
+  def spread_for (team)
+    get_score(team) - get_score_for_opponent(team)
+  end
+
   def to_s
     "#{date} - #{@teams.collect{|t| "#{t.name}: #{get_score(t)}"}.join(" vs. ")}"
   end
@@ -92,6 +96,7 @@ class Game
       else
         g.add_team(t)
         g.set_score(t, sc.to_i)
+        t.add_game(g)
       end
     end
     g

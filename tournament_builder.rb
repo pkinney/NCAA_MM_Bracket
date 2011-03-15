@@ -5,7 +5,7 @@ require "tournament"
 
 class TournamentBuilder
   def self.load_tourney_teams(filename, all_teams = nil)
-    all_teams ||= load_teams
+    all_teams ||= load_teams_id_to_team_map
     tourney_teams = []
     f = File.open(filename).each do |line|
       t = all_teams.each_value.select{|ta| ta.name == line.strip}.first
@@ -31,27 +31,6 @@ class TournamentBuilder
       root_round << t
     end
 
-    last_round = root_round
-    round = 2
-    while last_round.size>1
-      this_round = []
-      for i in 0...last_round.size/2 do
-        t = TourneyGame.new
-        t.set_parents(last_round[i*2], last_round[i*2+1])
-        t.round = round
-        t.name = "Round #{round}, Game #{i+1}"
-        this_round << t
-      end
-      round += 1
-      last_round = this_round
-    end
-
-    Tournament.from_root_round(root_round)
+    Tournament.from_first_round(root_round)
   end
 end
-
-tt = TournamentBuilder.load_tourney_teams("tourney_teams.txt")
-brak = TournamentBuilder.build_bracket(tt)
-brak.print_tourney
-brak.simulate!
-brak.print_tourney

@@ -12,7 +12,7 @@ require 'game'
 
 games = []
 
-teams = load_teams
+teams = load_teams_id_to_team_map
 total = teams.size
 counter = 0
 teams.values.each do |team|

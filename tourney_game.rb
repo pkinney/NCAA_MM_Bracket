@@ -5,7 +5,6 @@ class TourneyGame
   attr_accessor :team1, :team2, :game1, :game2, :child, :name, :round, :winner, :spread
 
   def initialize()
-    @parents = []
     @child = nil
   end
 

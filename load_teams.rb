@@ -1,6 +1,6 @@
 require "team"
 
-def load_teams(file = "teams.txt")
+def load_teams_id_to_team_map(file = "teams.txt")
   teams = {}
   f = File.open(file)
   while line = f.gets
