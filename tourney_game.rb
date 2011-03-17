@@ -2,7 +2,7 @@ require "game"
 require "team"
 
 class TourneyGame
-  attr_accessor :team1, :team2, :game1, :game2, :child, :name, :round, :winner, :spread
+  attr_accessor :team1, :team2, :game1, :game2, :child, :name, :round
 
   def initialize()
     @child = nil
@@ -20,13 +20,23 @@ class TourneyGame
     game2.child = self
   end
 
-  def set_result(winning_team, score_spread)
-    @winner=winning_team
-    @spread=score_spread
+  def set_result(score_map)
+    @team1_score = score_map[@team1]
+    @team2_score = score_map[@team2]
+  end
+
+  def winner
+    return nil unless @team1 && @team2 && @team1_score && @team2_score
+    @team1_score > @team2_score ? @team1 : @team2
   end
 
   def loser
-    winner == team1 ? team2 : team1
+    return nil unless @team1 && @team2 && @team1_score && @team2_score
+    winner == @team1 ? @team2 : @team1
+  end
+
+  def score_for(team)
+    team == @team1 ? @team1_score : @team2_score
   end
 
   def to_s

@@ -59,15 +59,15 @@ class Tournament
     if game.game1
       print_tourney(game.game1)
     else
-      puts game.team1.name + (game.winner == game.team1 ? " *" : "")
+      puts "#{game.team1.name} #{game.score_for(game.team1).round} #{" *" if game.winner == game.team1}"
     end
 
-    puts "#{" "*11*(game.round-1)} |--------> #{game.winner ? game.winner.name : game.name}#{" *" if game.child && game.child.winner == game.winner}"
+    puts "#{" "*11*(game.round-1)} |--------> #{game.winner ? game.winner.name : game.name}#{" * (#{game.child.score_for(game.child.winner).round} - #{game.child.score_for(game.child.loser).round})" if game.child && game.child.winner == game.winner}"
 
     if game.game2
       print_tourney(game.game2)
     else
-      puts game.team2.name + (game.winner == game.team2 ? " *" : "")
+      puts "#{game.team2.name} #{game.score_for(game.team2).round} #{" *" if game.winner == game.team2}"
     end
   end
 

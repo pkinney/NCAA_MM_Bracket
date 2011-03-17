@@ -8,6 +8,7 @@ module GameSimulator
     tourney_game.team1 ||= tourney_game.game1.winner || simulate_game(tourney_game.game1, proc)
     tourney_game.team2 ||= tourney_game.game2.winner || simulate_game(tourney_game.game2, proc)
 
-    tourney_game.winner = proc.call(tourney_game.team1, tourney_game.team2)
+    tourney_game.set_result(proc.call(tourney_game.team1, tourney_game.team2))
+    tourney_game.winner
   end
 end
