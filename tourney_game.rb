@@ -25,6 +25,10 @@ class TourneyGame
     @spread=score_spread
   end
 
+  def loser
+    winner == team1 ? team2 : team1
+  end
+
   def to_s
     if @team1 && @team2
       "#{@name} - #{@team1.name} vs. #{@team2.name}"

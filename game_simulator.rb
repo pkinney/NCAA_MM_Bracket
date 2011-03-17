@@ -1,10 +1,13 @@
 module GameSimulator
-  def simulate_game(tourney_game)
-    tourney_game.team1 ||= tourney_game.game1.winner || simulate_game(tourney_game.game1)[:winner]
-    tourney_game.team2 ||= tourney_game.game2.winner || simulate_game(tourney_game.game2)[:winner]
+  def self.simulate_tournament(tourney, proc=nil, &block)
+    simulate_game(tourney.final_game, proc || block)
+  end
+  
+  def self.simulate_game(tourney_game, proc=nil, &block)
+    proc ||= block
+    tourney_game.team1 ||= tourney_game.game1.winner || simulate_game(tourney_game.game1, proc)
+    tourney_game.team2 ||= tourney_game.game2.winner || simulate_game(tourney_game.game2, proc)
 
-    result = determine_result(tourney_game.team1, tourney_game.team2)
-    tourney_game.set_result(result[:winner], result[:spread])
-    result
+    tourney_game.winner = proc.call(tourney_game.team1, tourney_game.team2)
   end
 end

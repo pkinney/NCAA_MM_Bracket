@@ -1,5 +1,5 @@
 Ohio St.
-UTSA
+ UTSA
 George Mason
 Villanova
 West Virginia
@@ -39,7 +39,7 @@ Richmond
 Louisville
 Morehead St.
 Georgetown
-Southern California
+ Southern California
 Purdue
 St. Peter's
 Texas A&M
